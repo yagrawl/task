@@ -1,0 +1,39 @@
+body{
+    background-color: #D8D8D8;
+}
+
+.logo-Margin {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.question-Font {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #6C6E87;
+    margin-top: 100px;
+}
+
+input[type=text] {
+    border: 1px solid #979797;
+    border-radius: 4px;
+}
+
+.input-Text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: light;
+    color: #282828;
+}
+
+.next-Button {
+    border-radius: 4px;
+    font-size: 36px;
+    background-color: #D55656;
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: 14px 40px;
+    border: none;
+}
