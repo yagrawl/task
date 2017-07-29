@@ -1,29 +1,41 @@
-<!doctype HTML>
-<html>
-    <head>
-        <title>Task.</title>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="css/main.css" rel="stylesheet">
-        <!--JavaScript Bootstrap -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
-    </head>
-    <body>
-        <div class="logo-Margin"> 
-            <img src="img/logo.png" width="150px">
-        </div>
-        <div class="question-Font">
-            <center><p>What do you want to do?</p>
-            </center>
-            <span style="display:block; height: 20px;"> </span>
-        </div>
-        <div class="input-Text">
-            <center><input type="text"></center>
-            <span style="display:block; height: 40px;"> </span>
-        </div>
-        
-        <center><button class="next-Button">Next</button></center>
-            
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Task.</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Main CSS -->
+    <link href="css/main.css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+    
+</head>
+
+  <body>
+    <div class="page" id="page">
+      <div class="logo">
+        <img src="img/logo.png">
+      </div>
+      <div class="question-div" id="question1">
+        <p class="question-text">What do you want to do?</p>
+        <input class="text-answer" type="text" placeholder="Task Name" id="taskName"></input><br>
+        <img class="next-img" src="img/next.png" onclick="getTaskName()">
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+
 </html>

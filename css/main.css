@@ -1,39 +1,136 @@
-body{
-    background-color: #D8D8D8;
+
+/* Importing all the fonts with weights */
+@font-face {
+    font-family: Proxima Nova;
+    src: url(fonts/ProximaNovaThin.otf);
+    font-weight: 100;
 }
 
-.logo-Margin {
-    margin-top: 30px;
-    margin-left: 30px;
+@font-face {
+    font-family: Proxima Nova;
+    src: url(fonts/ProximaNovaAltRegular.otf);
+    font-weight: 200;
 }
 
-.question-Font {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 48px;
-    font-weight: bold;
-    color: #6C6E87;
-    margin-top: 100px;
+@font-face {
+    font-family: Proxima Nova;
+    src: url(fonts/ProximaSemibold.otf);
+    font-weight: 300;
 }
 
-input[type=text] {
-    border: 1px solid #979797;
-    border-radius: 4px;
+@font-face {
+    font-family: Proxima Nova;
+    src: url(fonts/ProximaNovaBold.otf);
+    font-weight: 400;
 }
 
-.input-Text {
-    font-family: 'Montserrat', sans-serif;
+.logo {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.logo > img {
+    width: 50px;
+}
+
+body {
+    background: white;
+}
+
+.page {
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: table;
+    height: 100vh;
+    margin: auto;
+    min-width: 375px;
+    position: relative;
+    width: 100vw;
+}
+
+.question-text {
+    font-family: Proxima Nova;
     font-size: 36px;
-    font-weight: light;
-    color: #282828;
+    font-weight: 100;
 }
 
-.next-Button {
-    border-radius: 4px;
-    font-size: 36px;
-    background-color: #D55656;
+.question-div {
+    margin: 50px auto;
     text-align: center;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    padding: 14px 40px;
-    border: none;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+input::placeholder {
+    opacity: 0.3;
+}
+
+.text-answer {
+    margin-top: 20px;
+    width: 380px;
+    height: 60px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    font-size: 48px;
+    font-weight: 100;
+    font-family: Proxima Nova;
+    background-color: white;
+}
+
+.number-answer {
+    margin-top: 20px;
+    width: 80px;
+    height: 60px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    font-size: 48px;
+    font-weight: 100;
+    font-family: Proxima Nova;
+    background-color: white;
+}
+
+.next-img {
+    width: 50px;
+    margin-top: 20px;
+}
+
+.task {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: 2px solid #C24343;
+    background: #F4F4F4;
+}
+
+.task-done {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: 1px solid #C24343;
+    background: #D55656;
+}
+
+.tasks-screen {
+    margin-top: 50px;
+    margin-left: 10%;
+    max-width: 40%;
+    float: left;
+}
+
+.tasks-deadline {
+    margin-top: 50px;
+    margin-right: 10%;
+    max-width: 40%;
+    float: right;
 }
