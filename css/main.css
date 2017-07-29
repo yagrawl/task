@@ -62,6 +62,20 @@ body {
     text-align: center;
 }
 
+@media (max-width: 600px){
+    .logo {
+        margin-left: 5%;
+    }
+
+    .question-div {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+}
+
 input:focus {
     outline-width: 0;
 }
@@ -138,6 +152,25 @@ input::placeholder {
     max-width: 40%;
     float: left;
 }
+
+@media (max-width: 600px){
+    .tasks-screen {
+        margin-top: 50px;
+        margin-left: 5%;
+        max-width: 90%;
+        margin-right: 5%;
+        float: left;
+    }
+
+    .tasks-deadline {
+        margin-top: 50px;
+        margin-left: 5%;
+        max-width: 90%;
+        margin-right: 5%;
+        float: left;
+    }
+}
+
 
 .title {
     font-size: 24px;
