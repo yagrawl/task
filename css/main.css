@@ -24,6 +24,7 @@
     font-weight: 400;
 }
 
+
 .logo {
     margin-top: 50px;
     margin-left: 50px;
@@ -49,6 +50,7 @@ body {
     min-width: 375px;
     position: relative;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .question-text {
