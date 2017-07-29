@@ -97,20 +97,60 @@ function getTaskDeadline(){
 }
 
 function showStats(){
-    var div = document.createElement('div');
-    div.className = "tasks-screen";
+    var tasks = document.createElement('div');
+    tasks.className = "tasks-screen";
+    var p = document.createElement('p');
+    p.className = "title";
+    p.textContent = "TASKS";
+
+    tasks.appendChild(p);
 
     for(i = 0; i < localStorage.taskNumber; i++)
     {
         var task = document.createElement('div');
         task.className = "task";
         task.onclick = function() {
-            this.className = "task-done";
+            var checkClass = this.getAttribute('class');
+            if(checkClass === "task-done"){
+                this.className = "task";
+            }
+            else{
+                this.className = "task-done";
+            }
+            
         };
-        div.appendChild(task);
+        tasks.appendChild(task);
     }
 
+    var deadline = document.createElement('div');
+    deadline.className = "tasks-deadline";
 
-    page.appendChild(div);
+    var p = document.createElement('p');
+    p.className = "title";
+    p.textContent = "TIME LEFT";
+
+    deadline.appendChild(p);
+
+    var time = document.createElement('p');
+    time.className = "subtitle";
+    time.textContent = localStorage.taskDeadline + ' Days';
+
+    deadline.appendChild(time);
+    var hr = document.createElement('hr');
+    deadline.appendChild(hr);
+
+    var p = document.createElement('p');
+    p.className = "title";
+    p.textContent = "TASK NAME";
+
+    var taskname = document.createElement('p');
+    taskname.className = "subtitle";
+    taskname.textContent = localStorage.taskName;
+
+    deadline.appendChild(p);
+    deadline.appendChild(taskname);
+
+    page.appendChild(tasks);
+    page.appendChild(deadline);
 }
 
