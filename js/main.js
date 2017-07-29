@@ -33,6 +33,7 @@ function setTaskNumber(){
     input.className = "number-answer";
     input.type = "number";
     input.id = "taskNumber";
+    input.placeholder = "17";
     img.src = "img/next.png";
     img.className = "next-img";
     img.setAttribute('onclick','getTaskNumber();');
@@ -71,6 +72,7 @@ function setTaskDeadline(){
     p.textContent = "How Many Days till Deadline?";
     input.className = "number-answer";
     input.type = "number";
+    input.placeholder = "12";
     input.id = "taskDeadline";
     img.src = "img/next.png";
     img.className = "next-img";
