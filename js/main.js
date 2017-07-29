@@ -130,12 +130,26 @@ function showStats(){
     p.textContent = "TIME LEFT";
 
     deadline.appendChild(p);
-
+    
     var time = document.createElement('p');
     time.className = "subtitle";
-    time.textContent = localStorage.taskDeadline + ' Days';
-
     deadline.appendChild(time);
+    var mincounter = 0;
+    var mins = localStorage.taskDeadline * 24 * 60;
+    var countdown = setInterval(function(){
+        var days = Math.floor(mins/(24*60));
+        var hours = Math.floor(mins%(days*24*60)/60);
+        var min = mins - days*24*60 - hours*60;
+        time.innerHTML = days + '<sup> days </sup>' + hours + '<sup> hours </sup>' + min + '<sup> mins </sup>';
+        if(mincounter == 60){
+            mins -= 1;
+            mincounter = 0;
+        }
+        mincounter += 1;
+    }, 1000);
+
+    
+    
     var hr = document.createElement('hr');
     deadline.appendChild(hr);
 
