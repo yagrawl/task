@@ -5,11 +5,9 @@ function checkStatus(){
     if(typeof localStorage.taskName !== 'undefined'){
         var question1 = document.getElementById("question1");
         page.removeChild(question1);
-        var diff = Math.abs(new Date() - new Date(localStorage.shutdownTime));
-        console.log('difference in time: ' + diff)
-        console.log(localStorage.doneTasks);
         if(typeof localStorage.doneTasks !== "undefined"){
             done = localStorage.doneTasks.split(',');
+            diff = Math.abs(new Date() - new Date(localStorage.shutdownTime));
         }
         showStats(done, diff);
     }
@@ -177,11 +175,13 @@ function showStats(done, diff){
     time.className = "subtitle";
     deadline.appendChild(time);
     var mincounter = 0;
-    if(isNaN(diff) && typeof diff == undefined){
+    if(diff == undefined){
         var mins = localStorage.taskDeadline * 24 * 60;
+        console.log('in if');
     }
     else{
-        var mins = localStorage.taskDeadline * 24 * 60 - Math.floor(diff/1000);
+        var mins = (localStorage.taskDeadline * 24 * 60) - Math.floor(diff/60000);
+        console.log('in else');
     }
     var countdown = setInterval(function(){
         var days = Math.floor(mins/(24*60));
@@ -225,7 +225,7 @@ function showStats(done, diff){
     page.appendChild(deadline);
     page.appendChild(newTask);
 
-    if(done !== 'undefined'){
+    if(done !== undefined){
         for(i = 0; i < done.length; i++){
             document.getElementById(done[i]).className = "task-done";
             var elem = document.getElementById("myBar");   
