@@ -133,12 +133,12 @@ function showStats(done, diff){
     for(i = 0; i < localStorage.taskNumber; i++)
     {
         var task = document.createElement('div');
-        task.className = "task hvr-pulse";
+        task.className = "task";
         task.id = "task" + i;
         task.onclick = function() {
             var checkClass = this.getAttribute('class');
-            if(checkClass === "task-done hvr-buzz"){
-                this.className = "task hvr-pulse";
+            if(checkClass === "task-done"){
+                this.className = "task";
                 var elem = document.getElementById("myBar"); 
                 width -= (100.0/localStorage.taskNumber); 
                 elem.style.width = width + '%'; 
@@ -150,7 +150,7 @@ function showStats(done, diff){
                 console.log(localStorage.doneTasks);
             }
             else{
-                this.className = "task-done hvr-buzz";
+                this.className = "task-done";
                 var elem = document.getElementById("myBar");   
                 width += (100.0/localStorage.taskNumber); 
                 elem.style.width = width + '%'; 
