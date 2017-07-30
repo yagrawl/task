@@ -4,7 +4,7 @@ function checkStatus(){
     if(localStorage.taskName !== 'undefined'){
         var question1 = document.getElementById("question1");
         page.removeChild(question1);
-        if(localStorage.doneTasks !== "undefined"){
+        if(localStorage.doneTasks !== "undefined" && localStorage.doneTasks.length > 5){
             var done = localStorage.doneTasks.split(',');
         }
         showStats(done);
