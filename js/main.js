@@ -133,21 +133,24 @@ function showStats(done, diff){
     for(i = 0; i < localStorage.taskNumber; i++)
     {
         var task = document.createElement('div');
-        task.className = "task";
+        task.className = "task hvr-pulse";
         task.id = "task" + i;
         task.onclick = function() {
             var checkClass = this.getAttribute('class');
-            if(checkClass === "task-done"){
-                this.className = "task";
-                var elem = document.getElementById("myBar");   
+            if(checkClass === "task-done hvr-buzz"){
+                this.className = "task hvr-pulse";
+                var elem = document.getElementById("myBar"); 
                 width -= (100.0/localStorage.taskNumber); 
                 elem.style.width = width + '%'; 
-                doneTasks.pop(this.id)
+                var index = doneTasks.indexOf(this.id);
+                if(index != -1) {
+                    doneTasks.splice(index, 1);
+                }
                 localStorage.doneTasks = doneTasks;
                 console.log(localStorage.doneTasks);
             }
             else{
-                this.className = "task-done";
+                this.className = "task-done hvr-buzz";
                 var elem = document.getElementById("myBar");   
                 width += (100.0/localStorage.taskNumber); 
                 elem.style.width = width + '%'; 
@@ -237,6 +240,7 @@ function showStats(done, diff){
 function setNewTask(){
     document.getElementById('deadline').remove();
     document.getElementById('tasks').remove();
+    doneTasks = [];
     localStorage.clear();
     var div = document.createElement('div');
     div.className = "question-div";
