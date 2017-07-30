@@ -30,9 +30,10 @@
       ga('send', 'pageview');
 
     </script>
+    <script src="js/main.js"></script>
 </head>
 
-  <body>
+  <body onload="checkStatus()">
     <div class="page" id="page">
       <div class="logo">
         <img src="img/logo.png">
@@ -40,12 +41,13 @@
       <div class="question-div" id="question1">
         <p class="question-text">What do you want to do?</p>
         <input class="text-answer" type="text" placeholder="Task Name" id="taskName"></input><br>
-        <img class="next-img" src="img/next.png" onclick="getTaskName()">
+        <img class="next-img" id="next1" src="img/next.png" style="cursor: pointer" onclick="getTaskName()">
       </div>
     </div>
+    
     <!-- Scripts -->
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 

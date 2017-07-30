@@ -1,10 +1,16 @@
-const page = document.getElementById("page");
+doneTasks = [];
 
 function checkStatus(){
-    
+    if(localStorage.taskName !== 'undefined'){
+        var question1 = document.getElementById("question1");
+        page.removeChild(question1);
+        var done = localStorage.doneTasks.split(',');
+        showStats(done);
+    }
 }
 
 function getTaskName(){
+    const page = document.getElementById("page");
     var taskName = document.getElementById("taskName").value;
     if (typeof(Storage) !== "undefined"){
         localStorage.taskName = taskName;
@@ -98,7 +104,7 @@ function getTaskDeadline(){
     showStats();
 }
 
-function showStats(){
+function showStats(done){
     var tasks = document.createElement('div');
     tasks.className = "tasks-screen";
     var p = document.createElement('p');
@@ -107,17 +113,45 @@ function showStats(){
 
     tasks.appendChild(p);
 
+    var progressContainer = document.createElement('div');
+    progressContainer.id = "progress-div";
+
+    var progress = document.createElement('div');
+    progress.id = "myProgress";
+
+    var bar = document.createElement('div');
+    bar.id = "myBar";
+
+    progress.appendChild(bar);
+    progressContainer.appendChild(progress);
+    tasks.appendChild(progressContainer);
+    var width = 1;
+
     for(i = 0; i < localStorage.taskNumber; i++)
     {
         var task = document.createElement('div');
         task.className = "task";
+        task.id = "task" + i;
         task.onclick = function() {
             var checkClass = this.getAttribute('class');
             if(checkClass === "task-done"){
                 this.className = "task";
+                var elem = document.getElementById("myBar");   
+                width -= (100.0/localStorage.taskNumber); 
+                elem.style.width = width + '%'; 
+                doneTasks.pop(this.id)
+                localStorage.doneTasks = doneTasks;
+                console.log(localStorage.doneTasks);
             }
             else{
                 this.className = "task-done";
+                var elem = document.getElementById("myBar");   
+                width += (100.0/localStorage.taskNumber); 
+                elem.style.width = width + '%'; 
+                doneTasks.push(this.id);
+                localStorage.doneTasks = doneTasks;
+                console.log(localStorage.doneTasks);
+            
             }
             
         };
@@ -163,10 +197,58 @@ function showStats(){
     taskname.className = "subtitle";
     taskname.textContent = localStorage.taskName;
 
+    var newTask = document.createElement('div');
+    newTask.className = "new";
+    var newTaskLogo = document.createElement('img');
+    newTaskLogo.src = "img/new.png";
+    newTaskLogo.setAttribute('onclick', 'setNewTask();');
+    newTask.appendChild(newTaskLogo);
+
     deadline.appendChild(p);
     deadline.appendChild(taskname);
 
+    tasks.id = "tasks";
+    deadline.id = "deadline";
     page.appendChild(tasks);
     page.appendChild(deadline);
+    page.appendChild(newTask);
+
+    for(i = 0; i < done.length; i++){
+        document.getElementById(done[i]).className = "task-done";
+        var elem = document.getElementById("myBar");   
+        width += (100.0/localStorage.taskNumber); 
+        elem.style.width = width + '%'; 
+    }
 }
+
+function setNewTask(){
+    document.getElementById('deadline').remove();
+    document.getElementById('tasks').remove();
+    var div = document.createElement('div');
+    
+    div.className = "question-div";
+    div.id = "question1";
+    
+    var p = document.createElement('p');
+    var input = document.createElement('input');
+    var img = document.createElement('img');
+    var br = document.createElement('br');
+
+    p.className = "question-text";
+    p.textContent = "What do you want to do?";
+    input.className = "text-answer";
+    input.type = "text";
+    input.id = "taskName";
+    input.placeholder = "Task Name";
+    img.src = "img/next.png";
+    img.className = "next-img";
+    img.setAttribute('onclick','getTaskName();');
+
+    div.appendChild(p);
+    div.appendChild(input);
+    div.appendChild(br);
+    div.appendChild(img);
+    page.appendChild(div);
+}
+
 
