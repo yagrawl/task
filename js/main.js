@@ -2,7 +2,7 @@ doneTasks = [];
 done = [];
 diff = 0;
 function checkStatus(){
-    if(localStorage.taskName !== 'undefined'){
+    if(typeof localStorage.taskName !== 'undefined'){
         var question1 = document.getElementById("question1");
         page.removeChild(question1);
         var diff = Math.abs(new Date() - new Date(localStorage.shutdownTime));
