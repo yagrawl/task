@@ -185,9 +185,28 @@ function showStats(done, diff){
     }
     var countdown = setInterval(function(){
         var days = Math.floor(mins/(24*60));
-        var hours = Math.floor(mins%(days*24*60)/60);
-        var min = mins - days*24*60 - hours*60;
-        time.innerHTML = days + '<sup> days </sup>' + hours + '<sup> hours </sup>' + min + '<sup> mins </sup>';
+        if(days != 0){
+            var hours = Math.floor(mins%(days*24*60)/60);
+            var min = mins - days*24*60 - hours*60;
+        }
+        else {
+            var hours = Math.floor(mins/60);
+            var min = mins - hours*60;
+        }
+        
+        var dayText = ' days ';
+        var hourText = ' hours ';
+        var minText = ' mins ';
+        if(days == 1){
+            dayText = ' day ';
+        }
+        if(hours == 1){
+            hourText = ' hour ';
+        }
+        if(min == 1){
+            minText = ' min ';
+        }
+        time.innerHTML = days + '<sup>&nbsp;' + dayText + '</sup>' + hours + '<sup>&nbsp;' + hourText + '</sup>' + min + '<sup>&nbsp;' + minText +'</sup>';
         if(mincounter == 60){
             mins -= 1;
             mincounter = 0;
