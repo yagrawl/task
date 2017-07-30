@@ -175,13 +175,11 @@ function showStats(done, diff){
     time.className = "subtitle";
     deadline.appendChild(time);
     var mincounter = 0;
-    if(diff == undefined){
+    if(diff === undefined){
         var mins = localStorage.taskDeadline * 24 * 60;
-        console.log('in if');
     }
     else{
-        var mins = (localStorage.taskDeadline * 24 * 60) - Math.floor(diff/60000);
-        console.log('in else');
+        var mins = (localStorage.shutMin) - Math.floor(diff/60000);
     }
     var countdown = setInterval(function(){
         var days = Math.floor(mins/(24*60));
@@ -193,6 +191,7 @@ function showStats(done, diff){
             mincounter = 0;
         }
         mincounter += 1;
+        localStorage.shutMin = days*24*60 + hours*60 + min;
         localStorage.shutdownTime = new Date();
     }, 1000);
 
