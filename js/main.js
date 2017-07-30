@@ -1,12 +1,11 @@
 doneTasks = [];
-done = [];
 diff = 0;
 function checkStatus(){
     if(typeof localStorage.taskName !== 'undefined'){
         var question1 = document.getElementById("question1");
         page.removeChild(question1);
         if(typeof localStorage.doneTasks !== "undefined"){
-            done = localStorage.doneTasks.split(',');
+            var done = localStorage.doneTasks.split(',');
             diff = Math.abs(new Date() - new Date(localStorage.shutdownTime));
         }
         showStats(done, diff);
