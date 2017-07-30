@@ -4,7 +4,9 @@ function checkStatus(){
     if(localStorage.taskName !== 'undefined'){
         var question1 = document.getElementById("question1");
         page.removeChild(question1);
-        var done = localStorage.doneTasks.split(',');
+        if(localStorage.doneTasks !== "undefined"){
+            var done = localStorage.doneTasks.split(',');
+        }
         showStats(done);
     }
 }
