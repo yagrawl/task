@@ -138,8 +138,8 @@ function showStats(done, diff){
         task.id = "task" + i;
         task.onclick = function() {
             var checkClass = this.getAttribute('class');
-            if(checkClass === "task-done"){
-                this.className = "task";
+            if(checkClass === "magictime swashIn task-done"){
+                this.className = "magictime vanishIn task";
                 var elem = document.getElementById("myBar");   
                 width -= (100.0/localStorage.taskNumber); 
                 elem.style.width = width + '%'; 
@@ -148,7 +148,7 @@ function showStats(done, diff){
                 console.log(localStorage.doneTasks);
             }
             else{
-                this.className = "task-done";
+                this.className = "magictime swashIn task-done";
                 var elem = document.getElementById("myBar");   
                 width += (100.0/localStorage.taskNumber); 
                 elem.style.width = width + '%'; 
