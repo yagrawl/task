@@ -1,13 +1,17 @@
 doneTasks = [];
-
+done = [];
+diff = 0;
 function checkStatus(){
     if(localStorage.taskName !== 'undefined'){
         var question1 = document.getElementById("question1");
         page.removeChild(question1);
-        if(localStorage.doneTasks !== "undefined" && localStorage.doneTasks.length > 5){
-            var done = localStorage.doneTasks.split(',');
+        var diff = Math.abs(new Date() - new Date(localStorage.shutdownTime));
+        console.log('difference in time: ' + diff)
+        console.log(localStorage.doneTasks);
+        if(typeof localStorage.doneTasks !== "undefined"){
+            done = localStorage.doneTasks.split(',');
         }
-        showStats(done);
+        showStats(done, diff);
     }
 }
 
@@ -106,7 +110,7 @@ function getTaskDeadline(){
     showStats();
 }
 
-function showStats(done){
+function showStats(done, diff){
     var tasks = document.createElement('div');
     tasks.className = "tasks-screen";
     var p = document.createElement('p');
@@ -173,7 +177,12 @@ function showStats(done){
     time.className = "subtitle";
     deadline.appendChild(time);
     var mincounter = 0;
-    var mins = localStorage.taskDeadline * 24 * 60;
+    if(isNaN(diff) && typeof diff == undefined){
+        var mins = localStorage.taskDeadline * 24 * 60;
+    }
+    else{
+        var mins = localStorage.taskDeadline * 24 * 60 - Math.floor(diff/1000);
+    }
     var countdown = setInterval(function(){
         var days = Math.floor(mins/(24*60));
         var hours = Math.floor(mins%(days*24*60)/60);
@@ -184,6 +193,7 @@ function showStats(done){
             mincounter = 0;
         }
         mincounter += 1;
+        localStorage.shutdownTime = new Date();
     }, 1000);
 
     
@@ -215,19 +225,22 @@ function showStats(done){
     page.appendChild(deadline);
     page.appendChild(newTask);
 
-    for(i = 0; i < done.length; i++){
-        document.getElementById(done[i]).className = "task-done";
-        var elem = document.getElementById("myBar");   
-        width += (100.0/localStorage.taskNumber); 
-        elem.style.width = width + '%'; 
+    if(done !== 'undefined'){
+        for(i = 0; i < done.length; i++){
+            document.getElementById(done[i]).className = "task-done";
+            var elem = document.getElementById("myBar");   
+            width += (100.0/localStorage.taskNumber); 
+            elem.style.width = width + '%'; 
+        }
     }
+    
 }
 
 function setNewTask(){
     document.getElementById('deadline').remove();
     document.getElementById('tasks').remove();
+    localStorage.clear();
     var div = document.createElement('div');
-    
     div.className = "question-div";
     div.id = "question1";
     
