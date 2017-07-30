@@ -57,20 +57,6 @@ body {
     text-align: center;
 }
 
-@media (max-width: 600px){
-    .logo {
-        margin-left: 5%;
-    }
-
-    .question-div {
-        margin-top: 50px;
-        margin-bottom: 50px;
-        margin-left: 5%;
-        margin-right: 5%;
-        text-align: center;
-    }
-}
-
 input:focus {
     outline-width: 0;
 }
@@ -103,6 +89,48 @@ input::placeholder {
     font-weight: 100;
     font-family: Proxima Nova;
     background-color: white;
+}
+
+@media (max-width: 600px){
+    .page {
+        position: relative;
+        overflow-x: hidden;
+        margin: auto;
+    }
+
+    .question-text {
+        font-family: Proxima Nova;
+        font-size: 24px;
+        font-weight: 100;
+    }
+
+    .logo {
+        margin-left: 5%;
+    }
+
+    .question-div {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+
+    .text-answer {
+        height: 40px;
+        font-size: 28px;
+        font-weight: 100;
+        font-family: Proxima Nova;
+        background-color: white;
+    }
+
+    .number-answer {
+        height: 40px;
+        font-size: 28px;
+        font-weight: 100;
+        font-family: Proxima Nova;
+        background-color: white;
+    }
 }
 
 .next-img {
