@@ -284,7 +284,7 @@ input::placeholder {
 }
 
 .complete-header {
-    padding: 2px 16px;
+    padding: 2px 50px;
     background-color: #D55656;
     color: white;
 }
@@ -296,15 +296,27 @@ input::placeholder {
     border-radius: 3px;
     text-align: center;
     margin-bottom: 20px; 
+    cursor: pointer;
 }
 
 .newTaskText {
     padding-top: 18px;
+    cursor: pointer;
 }
 
 .complete-body {
-    padding: 2px 16px;
+    padding: 2px 50px;
     vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+    .complete-header{
+        padding: 2px 5%;
+    }
+
+    .complete-body{
+        padding: 2px 5%;
+    }
 }
 
 @-webkit-keyframes slideIn {
