@@ -33,7 +33,7 @@
     </script>
     <script src="js/main.js"></script>
 </head>
-
+  
   <body onload="checkStatus()">
     <div class="overflow-div">
       <div class="page" id="page">
@@ -46,11 +46,26 @@
           <img class="next-img" id="next1" src="img/next.png" style="cursor: pointer" onclick="getTaskName()">
         </div>
       </div>
+      <div id="completed-Message" class="complete">
+
+        <!-- Modal content -->
+        <div class="complete-content">
+          <div class="complete-header">
+            <span class="close">&times;</span>
+            <p class="question-text">Congratulations!</p>
+          </div>
+          <div class="complete-body">
+            <div class="newTaskButton" onclick="completeNew()"><p class="title newTaskText">NEW TASK?</p></div>
+          </div>
+        </div>
+
+      </div>
     </div>
-    
+
     <!-- Scripts -->
 
     <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 

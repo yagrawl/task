@@ -153,6 +153,9 @@ function showStats(done, diff){
                 this.className = "task-done hvr-buzz";
                 var elem = document.getElementById("myBar");   
                 width += (100.0/localStorage.taskNumber); 
+                if(width >= 100){
+                    completed();
+                }
                 elem.style.width = width + '%'; 
                 doneTasks.push(this.id);
                 localStorage.doneTasks = doneTasks;
@@ -206,7 +209,7 @@ function showStats(done, diff){
         if(min == 1){
             minText = ' min ';
         }
-        time.innerHTML = days + '<sup>&nbsp;' + dayText + '</sup>' + hours + '<sup>&nbsp;' + hourText + '</sup>' + min + '<sup>&nbsp;' + minText +'</sup>';
+        time.innerHTML = days + '<sup>' + dayText + '</sup>&nbsp;' + hours + '<sup>' + hourText + '</sup>&nbsp;' + min + '<sup>' + minText +'</sup>';
         if(mincounter == 60){
             mins -= 1;
             mincounter = 0;
@@ -259,6 +262,9 @@ function showStats(done, diff){
 function setNewTask(){
     document.getElementById('deadline').remove();
     document.getElementById('tasks').remove();
+    if(document.getElementById('newTask')){
+        document.getElementById('newTask').remove();
+    }
     doneTasks = [];
     localStorage.clear();
     var div = document.createElement('div');
@@ -287,4 +293,23 @@ function setNewTask(){
     page.appendChild(div);
 }
 
+function completed(){
+    var modal = document.getElementById('completed-Message');
+    var close = document.getElementsByClassName("close")[0];
+    modal.style.display = "block";
+    close.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function completeNew(){
+    var modal = document.getElementById('completed-Message');
+    modal.style.display = "none";
+    setNewTask();
+}
 
