@@ -200,7 +200,7 @@ function showStats(done, diff){
     var countdown = setInterval(function(){
         var days = Math.floor(mins/(24*60));
         if(days != 0){
-            var hours = Math.floor(mins%(days*24*60)/60);
+            var hours = Math.floor((mins%(days*24*60))/60);
             var min = mins - days*24*60 - hours*60;
         }
         else {
