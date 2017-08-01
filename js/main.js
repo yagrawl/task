@@ -139,7 +139,12 @@ function showStats(done, diff){
             var checkClass = this.getAttribute('class');
             if(checkClass === "task-done hvr-buzz"){
                 this.className = "task hvr-pulse";
-                var elem = document.getElementById("myBar"); 
+                var elem = document.getElementById("myBar");
+                var logo = document.getElementById("logo");
+                logo.className = "logoBackMove";
+                setTimeout(function(){
+                    logo.className = "null";
+                }, 1000); 
                 width -= (100.0/localStorage.taskNumber); 
                 elem.style.width = width + '%'; 
                 var index = doneTasks.indexOf(this.id);
@@ -151,7 +156,13 @@ function showStats(done, diff){
             }
             else{
                 this.className = "task-done hvr-buzz";
-                var elem = document.getElementById("myBar");   
+                var logo = document.getElementById("logo");
+                logo.className = "logoMove";
+                setTimeout(function(){
+                    logo.className = "null";
+                }, 1000);
+                var elem = document.getElementById("myBar");  
+
                 width += (100.0/localStorage.taskNumber); 
                 if(width >= 100){
                     completed();
@@ -233,7 +244,7 @@ function showStats(done, diff){
     taskname.textContent = localStorage.taskName;
 
     var newTask = document.createElement('div');
-    newTask.className = "new";
+    newTask.className = "new hvr-pop";
     var newTaskLogo = document.createElement('img');
     newTaskLogo.src = "img/new.png";
     newTaskLogo.setAttribute('onclick', 'setNewTask();');

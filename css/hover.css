@@ -70,7 +70,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
 }
-.hvr-pulse:hover {
+.hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
   -webkit-animation-name: hvr-pulse;
   animation-name: hvr-pulse;
   -webkit-animation-duration: 1s;
@@ -1037,7 +1037,7 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
 }
-.hvr-buzz:hover{
+.hvr-buzz:hover, .hvr-buzz:focus,.hvr-buzz:active{
   -webkit-animation-name: hvr-buzz;
   animation-name: hvr-buzz;
   -webkit-animation-duration: 0.15s;

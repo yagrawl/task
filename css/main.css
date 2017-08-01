@@ -28,6 +28,24 @@
     width: 50px;
 }
 
+.logoMove {
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transform: rotate(359deg);
+  transform: rotate(359deg);
+}
+
+.logoBackMove {
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transform: rotate(-359deg);
+  transform: rotate(-359deg);
+}
+
 body {
     background: white;
 }
