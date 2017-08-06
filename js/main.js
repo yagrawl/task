@@ -220,7 +220,12 @@ function showStats(done, diff){
         if(min == 1){
             minText = ' min ';
         }
-        time.innerHTML = days + '<sup>' + dayText + '</sup>&nbsp;' + hours + '<sup>' + hourText + '</sup>&nbsp;' + min + '<sup>' + minText +'</sup>';
+        if(days == 0 && hours == 0 && min == 0){
+            time.innerHTML = "Time Over!";
+        }
+        else{
+            time.innerHTML = days + '<sup>' + dayText + '</sup>&nbsp;' + hours + '<sup>' + hourText + '</sup>&nbsp;' + min + '<sup>' + minText +'</sup>';
+        }
         if(mincounter == 60){
             mins -= 1;
             mincounter = 0;
