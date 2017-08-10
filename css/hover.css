@@ -114,7 +114,6 @@
   animation-direction: alternate;
 }
 
-/* Pulse Shrink */
 @-webkit-keyframes hvr-pulse-shrink {
   to {
     -webkit-transform: scale(0.9);

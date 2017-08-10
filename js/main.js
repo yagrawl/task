@@ -220,7 +220,7 @@ function showStats(done, diff){
         if(min == 1){
             minText = ' min ';
         }
-        if(days == 0 && hours == 0 && min == 0){
+        if(days <= 0 && hours <= 0 && min <= 0){
             time.innerHTML = "Time Over!";
         }
         else{
